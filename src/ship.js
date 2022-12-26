@@ -1,10 +1,14 @@
 class Ship {
-    constructor(startingPort) {
-      this.startingPort = startingPort;
+    constructor(currentPort) {
+      this.currentPort = currentPort;
     //   this.numPassengers = numPassengers;
     } 
+
     setSail() {
-      this.startingPort = null;
+      this.currentPort = 'Dover';
+    }
+    shipDock () {
+      this.
     }
   }
 
@@ -14,4 +18,5 @@ ship.setSail();
 
 
 module.exports = Ship;
+
 // const ship = new Ship('Calais', 200);
