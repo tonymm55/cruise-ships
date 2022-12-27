@@ -28,7 +28,7 @@ describe('constructor',() => {
     const ship = new Ship(dover);
 
     const calais = new Port('Calais');
-    ship.dock(calais);
+    ship.shipDock(calais);
   
     expect(ship.currentPort).toBe(calais);
   })
