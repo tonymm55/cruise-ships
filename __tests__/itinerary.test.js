@@ -1,5 +1,5 @@
 /* globals describe it expect */
-const Ship = require('../src/ship');
+// const Ship = require('../src/ship');
 const Port = require('../src/port');
 const Itinerary = require('../src/itinerary');
 
@@ -8,10 +8,14 @@ describe('constructor',() => {
     expect(new Itinerary ('Bilbao')).toBeInstanceOf(Object);
   });
  
-//   it('has a starting port', () => {
-//     // const ship = new Ship('Dover');
-//     const port = new Port('Dover');
-//     const ship = new Ship(port);
+  it('can have ports', () => {
+    const dover = new Port('Dover');
+    const calais = new Port ('Calais');
+
+    const itinerary = new Itinerary([dover, calais]);
+
+    expect(itinerary.ports).toEqual([dover, calais]);
+  });
 
 //     expect(ship.currentPort).toBe(port);
 //   });

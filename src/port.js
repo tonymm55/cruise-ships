@@ -1,6 +1,7 @@
 class Port {
-    constructor(name) {
-      this.name = name;
+    constructor(_name) {
+      this.name = _name;
+      console.log(_name);
     } 
   }
 
