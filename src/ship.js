@@ -3,8 +3,7 @@ class Ship {
       this.itinerary = _itinerary;
       this.currentPort = _itinerary.ports[0];
       this.previousPort = null
-    // console.log(itinerary.ports[0]);
-    //   this.numPassengers = numPassengers;
+      this.currentPort.addShip(this);
     } 
 // methods:
     setSail() {
@@ -14,8 +13,10 @@ class Ship {
       if (currentPortIndex === (itinerary.ports.length - 1)) {
         throw new Error('End of itinerary reached');
       }
-      this.previousPort = this.currentPort;
-      this.currentPort = null;
+      this.currentPort.ships = this.currentPort.ships.filter((ship) => 
+        ship !== this);
+        this.previousPort = this.currentPort;
+        this.currentPort = null;
     }
     
     shipDock() {
@@ -23,10 +24,8 @@ class Ship {
       const previousPortIndex = itinerary.ports.indexOf(this.previousPort);
 
       this.currentPort = itinerary.ports[previousPortIndex + 1];
+      this.currentPort.addShip(this);
     }
-  }
-
-// const ship = new Ship('Dover');
-// ship.setSail();
+  };
 
 module.exports = Ship;
