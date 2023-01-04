@@ -3,14 +3,17 @@
 const Port = require('../src/port');
 const Itinerary = require('../src/itinerary');
 
-describe('constructor',() => {
+describe('Itinerary constructor',() => {
   it('can be instantiated', () => {
     expect(new Itinerary ('Bilbao')).toBeInstanceOf(Object);
   });
  
   it('can have ports', () => {
-    const dover = new Port('Dover');
-    const calais = new Port ('Calais');
+    // const dover = new Port('Dover'); Replacing objects with dummies, as the test does not require a new object to pass?
+    // const calais = new Port ('Calais');
+
+    const dover = jest.fn();
+    const calais = jest.fn();
 
     const itinerary = new Itinerary([dover, calais]);
 
